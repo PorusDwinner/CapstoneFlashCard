@@ -1,0 +1,11 @@
+/* For the screens smaller than 640px */
+
+@media (max-width : 639px){
+    #cardContainerDiv{
+        margin-left: 0.7rem;
+    }
+
+    #cardMainDiv{
+        margin-right: 0.7rem;
+    }
+}

@@ -1,0 +1,20 @@
+/* *{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+#modal-wrapper{
+    left : 0;
+    right : 0;
+    bottom : 0;
+    top : 0;
+    background-color: rgba(184, 179, 179, 0.9);
+}
+#modal-container{
+    position: fixed;
+    top:50%;
+    left:50%;
+    transform: translate(-50%,-50%);
+    max-width : 40rem;
+    max-height: 40rem;
+} */

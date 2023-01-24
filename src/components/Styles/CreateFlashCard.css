@@ -1,0 +1,24 @@
+/* For smaller screen smaller than 640px */
+
+@media (max-width:639px){
+    #groupDescriptionDiv{
+        display: flex;
+        flex-direction: column;
+    }
+
+    #shadowBox{
+        margin-right : 10px;
+    }
+
+    #uploadImage{
+        margin-left: -50px;
+    }
+
+    #createButton{
+        margin-bottom: 10px;
+    }
+
+    #description{
+        width: 100%;
+    }
+}
