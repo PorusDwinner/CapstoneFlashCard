@@ -32,7 +32,7 @@ const FlashCardDetails = () => {
           
           <div className='flex flex-col'>
             <h2 className='text-xl text-black font-bold'> {filteredCard[0].card.groupName} </h2>
-            <p className='my-2' id='cardDescriptionPtag'> {filteredCard[0].card.description}</p>
+            <p className='my-2' id='cardDescriptionPtag'> {(filteredCard[0].card.description).slice(0,100)}...</p>
           </div>
         </header>
       </section>
@@ -47,7 +47,7 @@ const FlashCardDetails = () => {
           </div>
 
           <div className='sm:w-[20%] sm:mr-[1rem] sm:ml-[1rem]'>
-            <RightComponent flashcards={flashcards} />
+            <RightComponent filteredCard={filteredCard} />
           </div>
       </div>  
 

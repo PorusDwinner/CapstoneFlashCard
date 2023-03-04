@@ -7,11 +7,8 @@ import CreateFlashCard from './components/Pages/CreateFlashCard';
 import MyFlashCard from './components/Pages/MyFlashCard';
 import FlashCardDetails from './components/Pages/FlashCardDetails';
 import Team from './components/Pages/Team';
-// import { useAuth0 } from "@auth0/auth0-react";
 
 function App() {
-
-  // const { isAuthenticated} = useAuth0();
 
   return (
     <div id='mainAppContainer'>
