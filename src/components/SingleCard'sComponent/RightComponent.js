@@ -28,7 +28,7 @@ const RightComponent = ({ filteredCard }) => {
         doc.text(strArr2 , 30 , 350 );
 
         doc.addImage(`${filteredCard[0].card.groupImg}` , 'jpg' ,65,430,300,200);
-        doc.save('a.pdf');
+        doc.save(`${filteredCard[0].card.groupName}.pdf`);
     }
 
     return (
