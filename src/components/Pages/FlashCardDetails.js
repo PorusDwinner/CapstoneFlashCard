@@ -1,15 +1,17 @@
-import '../Styles/FlashCardDetails.css';
-import { useDispatch, useSelector } from 'react-redux';
-import { setShowFlash } from '../flashCardSlicer/flashCardSlice';
+import { useSelector } from 'react-redux';
 import { BiArrowBack } from 'react-icons/bi';
 import LeftComponent from '../SingleCard\'sComponent/LeftComponent';
 import MiddleComponent from '../SingleCard\'sComponent/MiddleComponent';
 import RightComponent from '../SingleCard\'sComponent/RightComponent';
 import ModalShare from '../Modal/ModalShare';
+import { useNavigate } from 'react-router-dom';
 
-const FlashCardDetails = ({ flashcards }) => {
+const FlashCardDetails = () => {
+  const navigate = useNavigate();
 
-  const dispatch = useDispatch();
+  // Getting all flashcards from the store
+  const flashcards = useSelector((state) => state.flashcard.flashcards);
+
   // compareId is in redux store, and it will be used to filter a flahcard on which user clicks
   const compareId = useSelector((state) => state.flashcard.compareId);
 
@@ -19,17 +21,15 @@ const FlashCardDetails = ({ flashcards }) => {
   // This will help us to use conditional rendering for modal component
   const modal = useSelector((state) => state.flashcard.modal);
 
-  // Function to change the state of showFlash in global store
-  const handelShowFlash = () => {
-    dispatch(setShowFlash());
-  }
-
   return (
     <div className='md:ml-12 sm:ml-6'>
 
       <section className='flex flex-col text-slate-6000'>
         <header className='flex'>
-          <BiArrowBack className='text-3xl mr-6 cursor-pointer' id='backArrow' onClick={handelShowFlash} />
+          
+          <BiArrowBack className='text-3xl mr-6 cursor-pointer'
+            id='backArrow' onClick={() => navigate(-1)} />
+          
           <div className='flex flex-col'>
             <h2 className='text-xl text-black font-bold'> {filteredCard[0].card.groupName} </h2>
             <p className='my-2' id='cardDescriptionPtag'> {filteredCard[0].card.description}</p>
@@ -37,34 +37,18 @@ const FlashCardDetails = ({ flashcards }) => {
         </header>
       </section>
 
-      <div className='flex justify-around mt-2' id='mainflextDiv'>
-      
-        <div id='leftRightCompoFlexDiv' className='sm:flex
-          md:flex-row
-          2xl:flex-row 
-          lg:flex-row
-          xl:flex-row
-          2xl:flex-row'>
-      
-          <div id='leftComponentDiv' className='bg-white drop-shadow-lg space-y-4 h-[67%] rounded-md mr-1 w-[20%]
-            sm:w-[20%] sm:h-auto sm:mr-4
-            md:-[20%] lg:[20%] xl:[20%] 2xl:[20%]
-            lg:h-auto'>
+      <div className='flex justify-around mt-2'>
+          <div className='bg-white drop-shadow-lg space-y-4 h-[25rem] rounded-md mr-1 w-[20%]'>
             <LeftComponent filteredCard={filteredCard} />
           </div>
 
-          <div id='middleComponentDiv' className='bg-white drop-shadow-lg space-y-4 rounded-md ml-1 mr-1 mb-4 w-[60%]'>
+          <div className='bg-white drop-shadow-lg space-y-4 rounded-md ml-1 mr-1 mb-4 w-[60%]'>
             <MiddleComponent filteredCard={filteredCard} />
           </div>
-      
-        </div>
 
-        <div className='2xl:w-[20%] sm:w-[20%]
-          md:w-[20%]
-          lg:w-[20%] lg:mr-[1rem]
-          xl:[20%] 2xl:[20%] '>
-          <RightComponent flashcards={flashcards} />
-        </div>
+          <div className='sm:w-[20%] sm:mr-[1rem] sm:ml-[1rem]'>
+            <RightComponent flashcards={flashcards} />
+          </div>
       </div>  
 
       <div>

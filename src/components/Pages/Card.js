@@ -1,22 +1,34 @@
-import '../Styles/Card.css';
 import { useDispatch } from 'react-redux';
-import { setShowFlash, setId } from '../flashCardSlicer/flashCardSlice';
+import { useNavigate } from 'react-router-dom';
+import { setId } from '../flashCardSlicer/flashCardSlice';
 
 const Card = ({ flashcard }) => {
 
+  // To navigate to different react page component
+  const navigate = useNavigate();
+
+  // To make changes in the global state
   const dispatch = useDispatch();
-  const handel_Render_Id_RightCard =(id) =>{
-    dispatch(setId(id));
-    dispatch(setShowFlash());
-  }
 
   return (
-    <div className='ml-0 mt-12 md:mt-2 md:block md:m-auto md:mb-10' id='cardContainerDiv'>
-        <div id='cardMainDiv' className="p-4 mx-auto flex flex-col space-y-3 items-center justify-center bg-white rounded-md text-black w-[23rem] h-[13rem] relative border-2 shadow-lg border-slate-200">
+    <div className='ml-0 mt-1 md:mt-2 md:block md:m-auto md:mb-10'>
+        <div
+          className="p-4 mx-8 flex flex-col space-y-3 items-center
+          justify-center bg-white rounded-md text-black w-[23rem] h-[13rem]
+          relative border-2 shadow-lg border-slate-200"
+        >
+        
           <div className='absolute -top-9'>
             {
-              flashcard.groupImg ? (<img className='rounded-full w-16 h-16 object-cover aspect-square' src={flashcard.groupImg} alt={flashcard.groupname} />) :
-                (<img className='rounded-full w-16 h-16 object-cover aspect-square' src='' alt={flashcard.groupname} />)
+              flashcard.groupImg ?
+              (
+                <img className='rounded-full w-16 h-16 object-cover aspect-square'
+                src={flashcard.groupImg} alt={flashcard.groupname} />
+              ) :
+              (
+                <img className='rounded-full w-16 h-16 object-cover aspect-square'
+                src='' alt={flashcard.groupname} />
+              )
             }
           </div>
 
@@ -25,11 +37,12 @@ const Card = ({ flashcard }) => {
           <p className='font-medium text-sm text-slate-700' >{flashcard.term ? flashcard.term.length : 0} Card</p>
 
           <button
-            className='py-1 px-16 text-red-600 font-semibold rounded-sm border-red-600 ring-2 ring-red-600'
-            onClick={() => handel_Render_Id_RightCard(flashcard.groupid)} >
-            View Cards
+            className='py-1 px-16 text-red-600 font-semibold rounded-sm border-red-600 ring-2 ring-red-600
+            hover:bg-red-600 hover:text-white'
+            onClick={() => { dispatch(setId(flashcard.groupid)) ; navigate(`/flashcarddetails/${flashcard.groupid}`)}} >
+            View
           </button>
-
+          
         </div>
     </div>    
   )

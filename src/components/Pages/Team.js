@@ -1,4 +1,4 @@
-import '../Styles/Team.css';
+
 
 const Team = () => {
   return (

@@ -1,5 +1,3 @@
-import './ModalShare.css';
-import { useState } from 'react';
 import { setModal } from '../flashCardSlicer/flashCardSlice';
 import { CopyToClipboard } from "react-copy-to-clipboard";
 import { BsShare } from "react-icons/bs";
@@ -16,8 +14,10 @@ import { useDispatch } from 'react-redux';
 
 const ModalShare = () => {
 
-    const INPUT_LINK = `http://www.almabetter.com/asdfjasfdlj`;
-    const [isCopied, setIsCopied] = useState(false);
+    // CopyToClipboard component will use this link inside it,
+    // so that user do not have to type the link
+    const INPUT_LINK = 'http://www.tech_buddies.com/flashCard-generator';
+    
     const dispatch = useDispatch();
     const shareTestUrl = 'http://www.tech_buddies.com/flashCard-generator';
 
@@ -40,7 +40,8 @@ const ModalShare = () => {
                                 http://www.tech_buddies.com/flashCard-generator
                             </span>
                         </p>
-                        <CopyToClipboard text={INPUT_LINK} onCopy={() => setIsCopied(true)}>
+                        
+                        <CopyToClipboard text={INPUT_LINK} >
                             <TbCopy className="text-xl text-slate-500 scale-x-[-1] cursor-pointer" />
                         </CopyToClipboard>
                     </div>

@@ -9,6 +9,7 @@ const initialState = {
     showFlash : false,
     modal : false,
     compareId :'',
+    urlGroupId : '',
 }
 
 // Slices can be created with redux-toolkit only, redux alone is not sufficient
@@ -17,6 +18,7 @@ export const flashCardSlice = createSlice({
     initialState,
     reducers: {
         // When setFlashCard is called, in the state/global store values(entered by the user) will be pushed
+        // setFalshCard will be called when user click 'create' button
         setFlashCard(state, action){
             state.flashcards.push({
                 card: action.payload,
@@ -24,22 +26,25 @@ export const flashCardSlice = createSlice({
         // Now values will be added in the local storage for the key 'flashcards' in the initialState
             localStorage.setItem('flashcards',JSON.stringify(state.flashcards));
         },
-        
-        // To change the state of the 'showFlash' in global state
-        setShowFlash(state, action){
-            state.showFlash = !state.showFlash;
-        },
 
+        // This will change the compare id each time when user clicks a flashcard
         setId(state, action){
             state.compareId = action.payload;
         },
 
+        // This is usefull for conditional rendering of modal component
         setModal(state, action){
             state.modal = !state.modal;
-        }
+        },
+
+        deleteFlashcard(state , action){
+            localStorage.clear();
+        },
         
     },
 });
 
-export const {setFlashCard, setShowFlash, setId, setModal} = flashCardSlice.actions;   // we will be using setFlashCard when user clicks create button
-export default flashCardSlice.reducer;                                                                            // we will be using this to create sotre
+// Actions needs to be exported so that we can use them in different components
+export const {setFlashCard, setId, setModal, deleteFlashcard } = flashCardSlice.actions;
+// Reducers need to be exported so that we can use it to make redux-store
+export default flashCardSlice.reducer;                                  

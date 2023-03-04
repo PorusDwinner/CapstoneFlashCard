@@ -1,5 +1,4 @@
-import React, { useState, useRef } from 'react';
-import '../Styles/CreateFlashCard.css';
+import { useState, useRef } from 'react';
 import validationSchema from '../validationSchema/validationSchema';
 import { Formik, Form, Field, FieldArray, ErrorMessage } from 'formik';
 import { AiOutlineToTop } from 'react-icons/ai';
@@ -36,7 +35,7 @@ const CreateFlashCard = () => {
   const editRef = useRef(null);
   const [groupImg, setGroupImg] = useState('');
 
-  // serFlashCard is an action(method) we can call it using dispatch only, according to the rules of redux 
+  // setFlashCard is an action(method) we can call it using dispatch only, according to the rules of redux 
   const addFlashCard = (values, actions) => {
     dispatch(setFlashCard(values));
     actions.resetForm();              // it will reset the form, group image and term image once user clicks create button

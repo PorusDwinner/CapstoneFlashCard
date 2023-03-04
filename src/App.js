@@ -13,7 +13,6 @@ function App() {
 
   // const { isAuthenticated} = useAuth0();
 
-
   return (
     <div id='mainAppContainer'>
       <div>
@@ -25,7 +24,7 @@ function App() {
           <Routes>
             <Route path='/' element={<CreateFlashCard />} />
             <Route path='/myflashcard' element={<MyFlashCard />} />
-            <Route path='/flashcarddetails' element={<FlashCardDetails />} />
+            <Route path='/flashcarddetails/:groupId' element={<FlashCardDetails />} />
             <Route path='/tech_buddies' element={<Team />} />
           </Routes>
         </BrowserRouter>

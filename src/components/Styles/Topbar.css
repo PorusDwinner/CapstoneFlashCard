@@ -1,8 +1,0 @@
-/* For the screens smaller than 640px */
-
-@media (max-width:639px){
-    #loginButton{
-        margin-top: -12px;
-        margin-left: 13px;
-    }
-}

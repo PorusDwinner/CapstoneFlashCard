@@ -1,31 +1,34 @@
 import React, { useState } from 'react';
-import '../Styles/MyFlashCard.css';
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 import { BsArrowDownUp } from 'react-icons/bs';
+import { deleteFlashcard } from '../flashCardSlicer/flashCardSlice';
 import Card from './Card';
-import FlashCardDetails from './FlashCardDetails';
-
 
 const MyFlashCard = () => {
 
+  const dispatch = useDispatch();
   const navigate = useNavigate();
   const flashcards = useSelector((state) => state.flashcard.flashcards);
   const [showCard, setShowCard] = useState(false);
-  const showFlash = useSelector((state) => state.flashcard.showFlash);
-  //this will set the limit on how many cards should be shown
+
+  //This will set the limit on how many cards should be shown
   const cardLimit = !showCard ? 6 : flashcards.length;
 
-  return (
-      
+  // To delete all the flashcards
+  const deleteAll = () => {
+    dispatch(deleteFlashcard());
+    window.location.reload();
+  }
+
+  return ( 
     <div className='2xl:ml-[4rem] 2xl:mr-[4rem]'>
-      {!showFlash &&
-      <section className='flex flex-wrap mt-16' id='cardContainerSection'>
+      <section className='flex flex-wrap mt-16'>
         {
           flashcards.length > 0 ?
             (
               <div id='cardContainerDiv' >
-                <div className='flex flex-wrap'>
+                <div className='flex flex-wrap justify-center'>
                   {
                     flashcards.slice(0, cardLimit).map(({ card }, index) => (
                       <Card key={index} flashcard={card} /> 
@@ -33,12 +36,20 @@ const MyFlashCard = () => {
                   }
                 </div>
 
-                <div className='flex justify-center mt-6'>
+                <div className='flex justify-center'>
                   {/* Since we have set the limit of cards to be shown to 6, this button will help user to see other cards also if more than 6 exist*/}
-                  <button className='font-medium bg-red-600 text-white p-2 mb-4 rounded-full hover:bg-red-500'
+                  <div className='flex'>
+                    <button className='font-medium bg-red-600 text-white p-2 mb-4 rounded-full mt-2 hover:bg-red-500'
                     onClick={() => setShowCard(!showCard)}>
-                    <BsArrowDownUp />
-                  </button>
+                      <BsArrowDownUp />
+                    </button>
+                  
+                    <button className='border border-red-600 px-6 ml-6 rounded-md text-red-600
+                    hover:bg-red-600 hover:text-white'
+                    onClick={deleteAll}>
+                      Delelte All
+                    </button>
+                  </div>
                 </div>
               </div>
             ) : (
@@ -64,17 +75,7 @@ const MyFlashCard = () => {
             )
         }
       </section>
-      }
-
-      {
-        showFlash && (
-          <div>
-            <FlashCardDetails flashcards={flashcards} />
-          </div>
-        )
-      }
     </div>
-
   )
 }
 

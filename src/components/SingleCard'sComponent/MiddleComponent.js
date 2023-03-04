@@ -1,17 +1,15 @@
-import '../Styles/MiddleComponent.css';
+
 
 const MiddleComponent = ({ filteredCard }) => {
   return (
-    <div>
-        <img className='m-2 h-80 object-cover aspect-square rounded shadow-lg
-        sm:w-[90%] sm:h-[300px] 
-        md:w-[96%] lg:w-[98%] lg:h-[200px]
-        xl:h-[90%]'
-          id='groupImage'
+    <div className='flex'>
+        <img id='groupImage'
+        className='m-2 h-80 object-cover aspect-square rounded shadow-lg'
           src={filteredCard[0].card.groupImg}
-          alt={filteredCard[0].card.groupname} />
+          alt={filteredCard[0].card.groupname}
+        />
         
-        <p className='m-2'>
+        <p className='m-2 text-lg font-serif'>
           {filteredCard[0].card.description}
         </p>
     </div>
