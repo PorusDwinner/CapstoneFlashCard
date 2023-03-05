@@ -12,9 +12,9 @@ const RightComponent = ({ filteredCard }) => {
     const dispatch = useDispatch();
     const navigate = useNavigate();
 
-    {/* A function which returns the hard coded values for A4 size pdf.
-        By making a seprate function we can use it in download and print functions
-        without writing the whole code again and also both functons will do the expected job */}
+    // A function which returns the hard coded values for A4 size pdf.
+    // By making a seprate function we can use it in download and print functions
+    // without writing the whole code again and also both functons will do the expected job
     
     const pdfDoc = () => {
         var doc = new jsPDF('portrait', 'px', 'a4', 'true');
