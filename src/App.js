@@ -1,5 +1,3 @@
-import React from 'react';
-import './App.css';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import Topbar from './components/Pages/Topbar';
 import HomePage from './components/Pages/HomePage';
@@ -11,7 +9,7 @@ import Team from './components/Pages/Team';
 function App() {
 
   return (
-    <div id='mainAppContainer'>
+    <div className='w-full h-screen bg-orange-50/40'>
       <div>
         <BrowserRouter>
         {/* We need Topbar and HomePage component out of Routes so that they can render every where */}
