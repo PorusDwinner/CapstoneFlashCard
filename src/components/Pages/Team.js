@@ -11,8 +11,8 @@ const Team = () => {
   };
 
   return (
-    <div className='m-10'>
-      <div className='flex justify-around'>
+    <div className='mt-[7rem]'>
+      <div className='flex justify-around flex-wrap'>
         {
           data.map((ele) => (
             <div className='flex flex-col text-center'>
@@ -41,6 +41,7 @@ const Team = () => {
                 </p>
               </div>
 
+              <div className='mt-4 flex flex-col'>
               <button className='mt-2 bg-blue-500 text-white rounded-sm py-1 hover:bg-blue-600'
               onClick={() => openLinkedinInNewTab(ele.Linkedin)}>
                 Linkedin
@@ -50,6 +51,7 @@ const Team = () => {
               onClick={() => openGitHubInNewTab(ele.GitHub)}>
                 Git Hub
               </button>
+              </div>
 
             </div>
           ))

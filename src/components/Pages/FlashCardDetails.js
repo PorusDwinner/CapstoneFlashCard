@@ -23,17 +23,22 @@ const FlashCardDetails = () => {
 
   return (
     <div className='md:ml-12 sm:ml-6'>
-
       <section className='flex flex-col text-slate-6000'>
         <header className='flex'>
-          
+  
           <BiArrowBack className='text-3xl mr-6 cursor-pointer'
             id='backArrow' onClick={() => navigate(-1)} />
           
           <div className='flex flex-col'>
-            <h2 className='text-xl text-black font-bold'> {filteredCard[0].card.groupName} </h2>
-            <p className='my-2' id='cardDescriptionPtag'> {(filteredCard[0].card.description).slice(0,100)}...</p>
+            <h2 className='text-xl text-black font-bold'>
+              {filteredCard[0].card.groupName}
+            </h2>
+            
+            <p className='my-2' id='cardDescriptionPtag'>
+              {(filteredCard[0].card.description).slice(0,100)}...
+            </p>
           </div>
+  
         </header>
       </section>
 
@@ -53,12 +58,9 @@ const FlashCardDetails = () => {
 
       <div>
         {
-          modal && (
-            <ModalShare />
-          )
+          modal && ( <ModalShare /> )
         }
       </div>
-
     </div>
   );
 }

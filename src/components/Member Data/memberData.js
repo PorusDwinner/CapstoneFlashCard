@@ -1,8 +1,8 @@
 const data = [
     {
-        Name            : 'Digvijay sdlfj',
+        Name            : 'Digvijay',
         Batch           : 'Cohort Alpha',
-        Mobile_No       : '+915648231567',
+        Mobile_No       : '+917737589677',
         E_mail          : 'to be added',
         Qualification   : 'to be added',
         Linkedin        : 'link',
@@ -12,7 +12,7 @@ const data = [
     {
         Name            : 'Amit Rathee',
         Batch           : 'Cohort Alpha',
-        Mobile_No       : '+915648231567',
+        Mobile_No       : '+919728352657',
         E_mail          : 'to be added',
         Qualification   : 'to be added',
         Linkedin        : 'link',
@@ -29,9 +29,9 @@ const data = [
         Image           : '/images/amit-saini.jpg'
     },
     {
-        Name            : 'Abhay sdfjlsdj',
+        Name            : 'Abhay',
         Batch           : 'Cohort Alpha',
-        Mobile_No       : '+915648231567',
+        Mobile_No       : '+918448850880',
         E_mail          : 'to be added',
         Qualification   : 'to be added',
         Linkedin        : 'link',
@@ -40,7 +40,7 @@ const data = [
     {
         Name            : 'Abhijit hiuhih',
         Batch           : 'Cohort Alpha',
-        Mobile_No       : '+915648231567',
+        Mobile_No       : '+919051789022',
         E_mail          : 'to be added',
         Qualification   : 'to be added',
         Linkedin        : 'link',

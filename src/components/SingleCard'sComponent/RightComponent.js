@@ -52,8 +52,9 @@ const RightComponent = ({ filteredCard }) => {
         <div className='flex flex-col flex-wrap'>
 
             <div>
-                <button className='flex bg-white py-2 px-4 font-medium rounded block w-[90%] m-auto shadow-lg hover:bg-opacity-20 sm:w-[100%] sm:mr-4'
-                    onClick={() => dispatch(setModal())} >
+                <button className='flex bg-white py-2 px-4 font-medium rounded
+                block w-[90%] m-auto shadow-lg hover:bg-opacity-20 sm:w-[100%] sm:mr-4'
+                onClick={() => dispatch(setModal())} >
                     <BsFillShareFill className='mt-1' /> <p className='ml-6 '>Share</p>
                 </button>
             </div>
@@ -61,7 +62,7 @@ const RightComponent = ({ filteredCard }) => {
             <div>
                 <button className='flex bg-white mt-6 py-2 px-4 font-medium rounded block
                 w-[90%] m-auto shadow-lg hover:bg-opacity-20 sm:w-[100%]'
-                    onClick={handelDownload}>
+                onClick={handelDownload}>
                     <BsFillCloudDownloadFill className='mt-1' />
                     <p className='ml-2 2xl:ml-6'>Download</p>
                 </button>
@@ -75,12 +76,12 @@ const RightComponent = ({ filteredCard }) => {
                     <p className='ml-6'>Print</p>
                 </button>
 
-                <button className='flex bg-white mt-6 py-2 px-4 font-medium rounded block w-[90%] m-auto shadow-lg hover:bg-opacity-20 sm:w-[100%]'
-                    onClick={() => navigate('/tech_buddies')}>
+                <button className='flex bg-white mt-6 py-2 px-4 font-medium rounded block
+                w-[90%] m-auto shadow-lg hover:bg-opacity-20 sm:w-[100%]'
+                onClick={() => navigate('/tech_buddies')}>
                     <HiUserGroup className='mt-2' /> <p className='ml-2 2xl:ml-6'>Our Team</p>
                 </button>
             </div>
-
         </div>
     )
 }

@@ -2,7 +2,7 @@ import { NavLink } from 'react-router-dom';
 
 const HomePage = () => {
   return (
-    <div className='lg:mt-8 lg:ml-24 sm:ml-12' id='homePageContainerDiv' >
+    <div className='lg:mt-8 lg:ml-24 sm:ml-12'>
       <div className="w-full pt-2">
 
         <h1 className="text-xl font-semibold mb-5">
@@ -25,8 +25,7 @@ const HomePage = () => {
               style={({ isActive }) => ({
                 borderBottom: isActive ? "2px solid red" : undefined,
                 paddingBottom: "6px",
-              })}
-            >
+              })}>
               My Flashcard
             </NavLink>
           </div>

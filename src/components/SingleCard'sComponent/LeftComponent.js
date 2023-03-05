@@ -12,8 +12,8 @@ const LeftComponent = () => {
 
   return (
     <div>
-      <h4 className='font-medium leading-tight text-center text-base mt-4 mb-2 text-red-600
-        2xl:text-xl'>
+      <h4 className='font-medium leading-tight text-center
+      text-base mt-4 mb-2 text-red-600 2xl:text-xl'>
         Your Flash Cards
       </h4>
       <hr />
