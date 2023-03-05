@@ -1,4 +1,3 @@
-import { saveAs } from 'file-saver';
 import jsPDF from 'jspdf';
 import { BsFillShareFill } from 'react-icons/bs';
 import { BsFillCloudDownloadFill } from 'react-icons/bs';
@@ -13,8 +12,11 @@ const RightComponent = ({ filteredCard }) => {
     const dispatch = useDispatch();
     const navigate = useNavigate();
 
-    // This will make all details set in a A4 size with hard codded values
-    const handelDownload = () => {
+    {/* A function which returns the hard coded values for A4 size pdf.
+        By making a seprate function we can use it in download and print functions
+        without writing the whole code again and also both functons will do the expected job */}
+    
+    const pdfDoc = () => {
         var doc = new jsPDF('portrait', 'px', 'a4', 'true');
         doc.text(30, 20, `Group Name : ${filteredCard[0].card.groupName}`);
 
@@ -28,7 +30,21 @@ const RightComponent = ({ filteredCard }) => {
         doc.text(strArr2 , 30 , 350 );
 
         doc.addImage(`${filteredCard[0].card.groupImg}` , 'jpg' ,65,430,300,200);
+        return doc;
+    }
+
+    // This will make all details fit in a A4 size with hard codded values
+    const handelDownload = () => {
+        var doc = pdfDoc();
         doc.save(`${filteredCard[0].card.groupName}.pdf`);
+    }
+
+    // This will open a new window to print the pdf
+    const handelPrint = () => {
+        var doc = pdfDoc();
+        doc.autoPrint();
+        // this will open the print page in new window
+        doc.output('dataurlnewwindow');
     }
 
     return (
@@ -52,8 +68,10 @@ const RightComponent = ({ filteredCard }) => {
             </div>
 
             <div>
-                <button className='flex bg-white mt-6 py-2 px-4 font-medium rounded block w-[90%] m-auto shadow-lg hover:bg-opacity-20 sm:w-[100%]'>
-                    <BsFillPrinterFill className='mt-1' />
+                <button className='flex bg-white mt-6 py-2 px-4 font-medium rounded block
+                w-[90%] m-auto shadow-lg hover:bg-opacity-20 sm:w-[100%]'
+                    onClick={handelPrint}>
+                    <BsFillPrinterFill className='mt-1'/>
                     <p className='ml-6'>Print</p>
                 </button>
 
@@ -64,7 +82,6 @@ const RightComponent = ({ filteredCard }) => {
             </div>
 
         </div>
-
     )
 }
 
