@@ -36,20 +36,19 @@ const MyFlashCard = () => {
                 </div>
 
                 <div className='flex justify-center'>
-                  {/* Since we have set the limit of cards to be shown to 6, this button will help user to see other cards also if more than 6 exist*/}
-                  <div className='flex'>
-                    <button onClick={() => setShowCard(!showCard)}
-                    className='font-medium bg-red-600 text-white p-2 mb-4 rounded-full mt-2
-                    hover:bg-red-500'>
-                      <BsArrowDownUp />
-                    </button>
+                  {/* Since we have set the limit of cards to be shown to 6,
+                  this button will help user to see other cards also if more than 6 exist*/}
+                  <button onClick={() => setShowCard(!showCard)}
+                  className='font-medium bg-red-600 text-white p-2 mb-4 rounded-full mt-2
+                  hover:bg-red-500'>
+                    <BsArrowDownUp />
+                  </button>
                   
-                    <button className='border border-red-600 px-6 ml-6 rounded-md text-red-600
-                    hover:bg-red-600 hover:text-white'
-                    onClick={deleteAll}>
-                      Delelte All
-                    </button>
-                  </div>
+                  <button className='border border-red-600 px-6 ml-6 rounded-md text-red-600
+                  hover:bg-red-600 hover:text-white'
+                  onClick={deleteAll}>
+                    Delelte All
+                  </button>
                 </div>
               </div>
             ) : (
