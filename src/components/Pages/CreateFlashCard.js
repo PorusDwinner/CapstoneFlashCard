@@ -188,7 +188,7 @@ const CreateFlashCard = () => {
                }
 
                <div className='flex items-center justify-around w-full md:flex-col md:space-y-5 md:mt-5'>
-                <button type='button' onClick={() => arrayHelper.remove(index)}>
+                <button type='button' onClick={() => { arrayHelper.remove(index) ; setTermImg('')}}>
                   <BsFillTrashFill className='h-7 text-red-400' />
                 </button>
                   
