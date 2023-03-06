@@ -29,7 +29,8 @@ const RightComponent = ({ filteredCard }) => {
         var strArr2 = doc.splitTextToSize(defination , 400);
         doc.text(strArr2 , 30 , 350 );
 
-        doc.addImage(`${filteredCard[0].card.groupImg}` , 'jpg' ,65,430,300,200);
+        doc.addImage(`${filteredCard[0].card.groupImg}` , 'jpg' ,35,430,180,200);
+        doc.addImage(`${filteredCard[0].card.termImg}` , 'jpg' ,240,430,180,500);
         return doc;
     }
 
@@ -48,7 +49,6 @@ const RightComponent = ({ filteredCard }) => {
     }
 
     return (
-
         <div className='flex flex-col flex-wrap'>
 
             <div>

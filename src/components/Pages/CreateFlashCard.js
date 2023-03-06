@@ -42,31 +42,34 @@ const CreateFlashCard = () => {
     dispatch(setFlashCard(values));
     actions.resetForm();              // it will reset the form, group image and term image once user clicks create button
     setGroupImg('');
+    setTermImg('');
     navigate('/myflashcard');
   };
 
   return (
   <div className='lg:ml-24 sm:mt-2 ml-12'>
-   <Formik initialValues={defaultValues} validationSchema={validationSchema} onSubmit={addFlashCard}>
+   <Formik initialValues={defaultValues} validationSchema={validationSchema}
+   onSubmit={addFlashCard}>
    {/* values isSubmitting and serFieldValue are the properties we get with formki */}
    {({ values, isSubmitting, setFieldValue }) => (
-    <Form className='space-y-2.5 text-slate-500 font-medium sm:mr-2' id='shadowBox'>
+    <Form className='space-y-2.5 text-slate-500 font-medium sm:mr-2'>
      <div className="flex flex-col px-10 py-4 bg-white drop-shadow-lg space-y-2.5 rounded-md">
-      <div className='flex sm:flex-row items-center space-x-10 pt-3' id='groupDescriptionDiv'>
+      <div className='flex sm:flex-row items-center space-x-10 pt-3'>
 
-       <div className='flex flex-col'>
-        <h2>Create Group*</h2>
+       <div className='flex flex-wrap'>
+        <div className='flex flex-col'>
+          <h2>Create Group*</h2>
   
-        <Field type='text' name='groupName' placeholder='Group Name...' id='description'
-        className="border-slate-300 p-2 lg:mt-2 md:w-96 border-2 rounded-sm
+          <Field type='text' name='groupName' placeholder='Group Name...'
+          className="border-slate-300 p-2 lg:mt-2 md:w-96 border-2 rounded-sm
           focus:ring-slate-300 focus:border focus:border-slate-400" />
+  
+          <p className='text-sm text-red-300'>
+            <ErrorMessage name='groupName' />
+          </p>
+        </div>
         
-        <p className='text-sm text-red-300'>
-          <ErrorMessage name='groupName' />
-        </p>
-       </div>
-                
-       <div>
+       <div className='ml-8 mt-2' >
         {groupImg ? (
          <img src={groupImg} alt='Group Img' className='w-28 h-28 object-contain' />) :
          (
@@ -76,21 +79,26 @@ const CreateFlashCard = () => {
               <AiOutlineToTop />
               <p>Upload Image</p>
 
-          <input type='file' ref={groupImagePickerRef} value={defaultValues.groupImg}
+          <input type='file' ref={groupImagePickerRef} value={groupImg}
           onChange={(e) => {
             const file = e.target.files[0];
+            if(file.size > 0.1e6 ){
+              window.alert('Max image size permitted is 100KB')
+            }else {
             const reader = new FileReader();  //FileReader() to read the data, in this project we are using to read the image
             reader.readAsDataURL(file);       //here readAsDataURL() is used to read the content of the file
 
             reader.onload = () => {             //Once file is loaded, onload() will be triggered
             setFieldValue('groupImg', reader.result);
             setGroupImg(reader.result);
-          };}}        //Since we are wrapping input field in a button , using 'hidden' we can can hide the input field but it wil be still functional
+          };}}}
+          // 'hidden' will hide the input field but still functional        
           hidden />
           </button> )
         }
        </div>
       </div>
+     </div>
 
       <div className='flex flex-col w-full sm:w-[65%]'>
         <h2>Add Description</h2>
@@ -153,10 +161,10 @@ const CreateFlashCard = () => {
               <div className='flex items-center spacex-x-2'>
                {
                 termImg ? ( 
-                  <img src={termImg} alt='TermImg' className='w-28 h-28 object-contain'/> ) :
+                  <img src={termImg} alt='Term Img' className='w-28 h-28 object-contain'/> ) :
                    (  
-                    <button onClick={() => termImagePickerRef.current.click()}
-                      className=' lg:flex lg:items-center lg:w-[19rem] lg:mt-4 px-2 py-2
+                    <button type='button' onClick={() => termImagePickerRef.current.click()}
+                      className='lg:flex lg:items-center lg:w-[19rem] lg:mt-4 px-2 py-2
                       bg-white border-2 border-blue-600 active:border-slate-300 text-blue-700
                       font-semibold rounded-md space-x-2'>
                         <BiPlus />
@@ -165,6 +173,9 @@ const CreateFlashCard = () => {
                       <input type='file' ref={termImagePickerRef} value={termImg}
                       onChange={(e) => {
                         const file = e.target.files[0];
+                        if(file.size > 0.1e6){
+                          alert('Max image size permitted is 100KB')
+                        } else {
                         const reader = new FileReader();  
                         reader.readAsDataURL(file);       
 
@@ -172,8 +183,8 @@ const CreateFlashCard = () => {
                         setFieldValue('termImg', reader.result);
                         setTermImg(reader.result);
                         };
-                      }} hidden />
-                     </button> )
+                      }}} hidden />
+                    </button> )
                }
 
                <div className='flex items-center justify-around w-full md:flex-col md:space-y-5 md:mt-5'>
@@ -203,8 +214,9 @@ const CreateFlashCard = () => {
             </button>
 
             <div className='flex justify-center w-full' id='createButton'>
-             <button disabled={isSubmitting} type='submit'
-             className='py-2 px-6 bg-red-600 text-white rounded-md'>
+             <button type='submit' disabled={isSubmitting}
+             className='py-2 px-6 bg-red-600 text-white rounded-md
+             hover:bg-red-700 hover:cursor-pointer'>
               Create & Go...
              </button>
             </div>
