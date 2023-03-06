@@ -196,7 +196,6 @@ const CreateFlashCard = () => {
                   <BiPencil className='h-7 text-blue-600' />
                 </button>
                </div>
-
               </div>
              </div>
             </div> )) : null
