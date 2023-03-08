@@ -85,13 +85,13 @@ const CreateFlashCard = () => {
             if(file.size > 0.1e6 ){
               window.alert('Max image size permitted is 100KB')
             }else {
-            const reader = new FileReader();  //FileReader() to read the data, in this project we are using to read the image
-            reader.readAsDataURL(file);       //here readAsDataURL() is used to read the content of the file
-
-            reader.onload = () => {             //Once file is loaded, onload() will be triggered
+            const reader = new FileReader();  
+            reader.readAsDataURL(file);       
+            // Once file is loaded, onload() will be triggered  
+            reader.onload = () => {             
             setFieldValue('groupImg', reader.result);
             setGroupImg(reader.result);
-          };}}}
+          }}}}
           // 'hidden' will hide the input field but still functional        
           hidden />
           </button> )
@@ -101,14 +101,14 @@ const CreateFlashCard = () => {
      </div>
 
       <div className='flex flex-col w-full sm:w-[65%]'>
-        <h2>Add Description</h2>
+        <h2>Add Description*</h2>
       
         <Field as='textarea' name='description' rows={4} placeholder='Description...'
         className="resize-none border-slate-300 border-2 p-2 rounded-sm placeholder:opacity-40
         focus:ring-slate-400 focus:border focus:border-slate-400" />
         
         <p className='text-sm text-red-300'>
-          <ErrorMessage name='description' />
+          <ErrorMessage name='description'/>
         </p>
       </div>
      </div>

@@ -1,70 +1,87 @@
-# Getting Started with Create React App
+---------------------------ALMABETTER CPASTONE FRONTEND FLASHCARD GENERATOR--------------------------------------
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Author : Amit Saini
 
-## Available Scripts
+How to start this app ?
+    Git clone or download the zip form git, first run 'npm install' to install all the
+    dependencies and then run 'npm start' to start the server.
+    
+    By Default App will start on localhost:3000.
 
-In the project directory, you can run:
+Frontend Technologies used in this project
+    1. React JS
+    2. React-Router-Dom
+    3. React-Redux
+    4. Redux Toolkit
+    5. NanoId
+    6. React-Copy-To-Clipboard
+    7. React-icons
+    8. React-Share
+    9. Formik Library
+    10.Yup Library
+    11.jsPDF
+    12.Tailwind CSS
 
-### `npm start`
+* The very first page of the app is create flashcard, a form will be displayed to create flashcard.
+* The form is made using formik library and has the validation through yup library.
+* All the fields are required except images
+* Validation on the size of images is also added.
+* User is allowed to upload images upto 100kb
+* User is allowd to upload one image for the group and one image for the term.
+* User can make as much term he/she wants with each group.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+* The main reason for adding the validation for the size of the images is because the
+    local storage has very limited space of 5MB.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+* To make this app useful and functional user is allowed to upload image upto 100KB per image.
 
-### `npm test`
+* This way app can be used to make upto 20+ flashcards with such limited localstorage of 5MB.
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+* Once all feilds 'Create & Go...' button can be used to add the flashcard details to the local storage.
+* '/myflashcard' page will render after the click on 'Create & Go...' button.
 
-### `npm run build`
+* Since we are using redux here so i have tried to not to use props drilling
+    rather we will use useSelector hook to get the state.
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+* On MyFlashCard page we can see all the flashcards created by the user.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+* upon click on a flashcard further it will take you to the FlashCardDetail page,
+    where we can check with
+    1. All the details of the flashcards.
+    2. We will have links to other flashcards also on the left side.
+    3. Buttons for share , print , download and team details are available on the right side.
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+* FlashcardDetails page is rendering three different components in it.
+    1.Left component    
+    1.Middle component    
+    1.Right component    
 
-### `npm run eject`
+    . Left Component     --------> To Show links for all other flashcards on the left side
+    . Right component    --------> To Show the share , print , download and team button.
+    . Middle component   --------> To show all the details regarding the flashcard, which user wants to access.
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+* To make print and download button functional, jsPDF library has been used
+    * For the formating of the pdf page hard coded values are used, but the data
+        on the pdf page is puerly dynamic.
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+* To render the flashcard details on which user clicks, you can use useParams() to get he id from the URL
+    and then using filter function we can get the desire flashcard details.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+    * For some reason what i did is on user click i am sending id to the redux store and then using filter
+        function flashcards are filtered out in the flashcard detail component.
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+* For validating the formik values, we are using yup library, and the validation schema can
+    be found in seprate folder 'validationSchema'                   
 
-## Learn More
+* Redux Toolkit is used to create slice and store.
+* To make store and slice functional we need to wrap <App/> component in Provider with store
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+* To call any actions from the store useDispatch() hook is used.
+* To get any state from the store useSelector() hook is used.
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+* Tailwind CSS
+    . run npm i -D tailwindcss
+    . To configure npm init tailwindcss
+    . Then do the recommended changes given on https://tailwindcss.com/docs/installation
 
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+* Make sure after configuering the tailwind css your start the server again.    
