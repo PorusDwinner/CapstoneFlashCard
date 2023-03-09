@@ -18,11 +18,13 @@ const Card = ({ flashcard }) => {
           relative border-2 shadow-lg border-slate-200">
         
           <div className='absolute -top-9'>
+            {/* First it will be checked if flashcard is not empty */}
             {
               flashcard.groupImg ?( 
                 <img className='rounded-full w-16 h-16 object-cover aspect-square'
                 src={flashcard.groupImg} alt={flashcard.groupname} />
               ) : (
+                // If No image found then image will be empyt but will execute the line
                 <img className='rounded-full w-16 h-16 object-cover aspect-square'
                 src='' alt={flashcard.groupname} />
               )

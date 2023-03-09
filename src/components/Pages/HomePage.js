@@ -11,6 +11,7 @@ const HomePage = () => {
 
         <div className="flex items-center space-x-10 mb-3">
           {/* Navlink component to make route functional */}
+
           <div className="text-sm font-semibold text-red-600">
             <NavLink to={"/"} style={({ isActive }) => ({
                 borderBottom: isActive ? "2px solid red" : undefined,
@@ -21,6 +22,8 @@ const HomePage = () => {
           </div>
 
           <div className="text-sm font-semibold text-red-600">
+            
+            {/* Navlink has class called 'isActive' which we are defining here for styling */}
             <NavLink to={"/myflashcard"}
               style={({ isActive }) => ({
                 borderBottom: isActive ? "2px solid red" : undefined,

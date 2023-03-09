@@ -1,3 +1,4 @@
+import '../styles/FlashCardDetails.css';
 import { useSelector } from 'react-redux';
 import { BiArrowBack } from 'react-icons/bi';
 import LeftComponent from '../SingleCard\'sComponent/LeftComponent';
@@ -12,10 +13,10 @@ const FlashCardDetails = () => {
   // Getting all flashcards from the store
   const flashcards = useSelector((state) => state.flashcard.flashcards);
 
-  // compareId is in redux store, and it will be used to filter a flahcard on which user clicks
+  // It will be used to filter flahcard on which user clicks
   const compareId = useSelector((state) => state.flashcard.compareId);
 
-  // filteredCard will have only one object element at a time since id's of the objects are different
+  // filteredCard will have only one object element at a time
   const filteredCard = flashcards.filter(ele => ele.card.groupid === compareId);
 
   // This will help us to use conditional rendering for modal component
@@ -34,7 +35,7 @@ const FlashCardDetails = () => {
               {filteredCard[0].card.groupName}
             </h2>
             
-            <p className='my-2' id='cardDescriptionPtag'>
+            <p className='my-2'>
               {(filteredCard[0].card.description).slice(0,100)}...
             </p>
           </div>
@@ -42,20 +43,25 @@ const FlashCardDetails = () => {
         </header>
       </section>
 
-      <div className='flex justify-around mt-2'>
-          <div className='bg-white drop-shadow-lg space-y-4 h-[25rem] rounded-md mr-1 w-[20%]'>
+      <div className='flex justify-around mt-2'
+      id='componentDiv'>
+          <div className='bg-white drop-shadow-lg space-y-4 h-[25rem] rounded-md mr-1 w-[20%]'
+          id='leftComponentDiv'>
             <LeftComponent filteredCard={filteredCard} />
           </div>
 
-          <div className='bg-white drop-shadow-lg space-y-4 rounded-md ml-1 mr-1 mb-4 w-[60%]'>
+          <div className='bg-white drop-shadow-lg space-y-4 rounded-md ml-1 mr-1 mb-4 w-[60%]'
+          id='middleComponentDiv'>
             <MiddleComponent filteredCard={filteredCard} />
           </div>
 
-          <div className='sm:w-[20%] sm:mr-[1rem] sm:ml-[1rem]'>
+          <div className='w-[20%] mr-1'
+          id='rightComponentDiv'>
             <RightComponent filteredCard={filteredCard} />
           </div>
       </div>  
 
+      {/* Conditional Rendering on the basis of state of 'modal' */}
       <div>
         {
           modal && ( <ModalShare /> )

@@ -2,6 +2,7 @@ import data from '../Member Data/memberData';
 
 const Team = () => {
 
+  // Following two functions will open the links in different window
   const openLinkedinInNewTab = (url) => {
     window.open(url , '_blank' , 'noreferre');
   };
@@ -11,8 +12,11 @@ const Team = () => {
   };
 
   return (
+    // map() function will go through each element of the data.js
+    // thus will get all the details of each team memeber
     <div className='mt-[7rem]'>
-      <div className='flex justify-around flex-wrap'>
+      <div className='flex justify-around flex-wrap'
+      id='teamDiv'>
         {
           data.map((ele) => (
             <div className='flex flex-col text-center'>

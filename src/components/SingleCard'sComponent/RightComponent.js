@@ -1,3 +1,4 @@
+import '../styles/RightComponent.css';
 import jsPDF from 'jspdf';
 import { BsFillShareFill } from 'react-icons/bs';
 import { BsFillCloudDownloadFill } from 'react-icons/bs';
@@ -49,37 +50,55 @@ const RightComponent = ({ filteredCard }) => {
     }
 
     return (
-        <div className='flex flex-col flex-wrap'>
+        <div className='flex flex-wrap flex-col' id='buttonDiv'>
 
+            {/* Share Button with icon */}
             <div>
                 <button className='flex bg-white py-2 px-4 font-medium rounded
-                block w-[90%] m-auto shadow-lg hover:bg-opacity-20 sm:w-[100%] sm:mr-4'
+                block w-[90%] m-auto shadow-lg hover:bg-opacity-20'
+                id='button'
                 onClick={() => dispatch(setModal())} >
-                    <BsFillShareFill className='mt-1' /> <p className='ml-6 '>Share</p>
+                    <BsFillShareFill className='mt-1' />
+                    <p className='ml-6 '>
+                        Share
+                    </p>
                 </button>
             </div>
 
+            {/* Download Button with icon */}
             <div>
                 <button className='flex bg-white mt-6 py-2 px-4 font-medium rounded block
-                w-[90%] m-auto shadow-lg hover:bg-opacity-20 sm:w-[100%]'
+                w-[90%] m-auto shadow-lg hover:bg-opacity-20'
+                id='button'
                 onClick={handelDownload}>
                     <BsFillCloudDownloadFill className='mt-1' />
-                    <p className='ml-2 2xl:ml-6'>Download</p>
+                    <p className='ml-2 2xl:ml-6'>
+                        Download
+                    </p>
                 </button>
             </div>
 
+            {/* Print Button with icon */}
             <div>
                 <button className='flex bg-white mt-6 py-2 px-4 font-medium rounded block
-                w-[90%] m-auto shadow-lg hover:bg-opacity-20 sm:w-[100%]'
+                w-[90%] m-auto shadow-lg hover:bg-opacity-20'
+                id='button'
                     onClick={handelPrint}>
                     <BsFillPrinterFill className='mt-1'/>
-                    <p className='ml-6'>Print</p>
+                    <p className='ml-6'>
+                        Print
+                    </p>
                 </button>
 
+            {/* Our Team Button with icon */}
                 <button className='flex bg-white mt-6 py-2 px-4 font-medium rounded block
-                w-[90%] m-auto shadow-lg hover:bg-opacity-20 sm:w-[100%]'
+                w-[90%] m-auto shadow-lg hover:bg-opacity-20'
+                id='button'
                 onClick={() => navigate('/tech_buddies')}>
-                    <HiUserGroup className='mt-2' /> <p className='ml-2 2xl:ml-6'>Our Team</p>
+                    <HiUserGroup className='mt-2' />
+                    <p className='ml-2 2xl:ml-6'>
+                        Our Team
+                    </p>
                 </button>
             </div>
         </div>

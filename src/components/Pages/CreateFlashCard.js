@@ -37,10 +37,15 @@ const CreateFlashCard = () => {
   const [groupImg, setGroupImg] = useState('');
   const [termImg , setTermImg] = useState('');
 
-  // setFlashCard is an action(method) we can call it using dispatch only, according to the rules of redux 
   const addFlashCard = (values, actions) => {
+
+    // setFlashCard() is called with payload 'values'
     dispatch(setFlashCard(values));
-    actions.resetForm();              // it will reset the form, group image and term image once user clicks create button
+
+    // It will reset the form, group image and term image once user clicks create button
+    actions.resetForm();     
+
+    // re-setting group image and term image to empty 
     setGroupImg('');
     setTermImg('');
     navigate('/myflashcard');
@@ -51,6 +56,7 @@ const CreateFlashCard = () => {
    <Formik initialValues={defaultValues} validationSchema={validationSchema}
    onSubmit={addFlashCard}>
    {/* values isSubmitting and serFieldValue are the properties we get with formki */}
+
    {({ values, isSubmitting, setFieldValue }) => (
     <Form className='space-y-2.5 text-slate-500 font-medium sm:mr-2'>
      <div className="flex flex-col px-10 py-4 bg-white drop-shadow-lg space-y-2.5 rounded-md">
@@ -64,6 +70,8 @@ const CreateFlashCard = () => {
           className="border-slate-300 p-2 lg:mt-2 md:w-96 border-2 rounded-sm
           focus:ring-slate-300 focus:border focus:border-slate-400" />
   
+          {/* If validation fails with this field it will show the error message
+          as mentioned in validation schema */}
           <p className='text-sm text-red-300'>
             <ErrorMessage name='groupName' />
           </p>
@@ -74,14 +82,15 @@ const CreateFlashCard = () => {
          <img src={groupImg} alt='Group Img' className='w-28 h-28 object-contain' />) :
          (
           <button type='button' onClick={() => groupImagePickerRef.current.click()} 
-            className={`flex items-center px-5 py-2 mt-6 bg-white border-2 border-slate-300
-            active:border-blue-600 text-blue-700 font-semibold rounded-md space-x-2`} >
+            className='flex items-center px-5 py-2 mt-6 bg-white border-2 border-slate-300
+            active:border-blue-600 text-blue-700 font-semibold rounded-md space-x-2'>
               <AiOutlineToTop />
               <p>Upload Image</p>
 
           <input type='file' ref={groupImagePickerRef} value={groupImg}
           onChange={(e) => {
             const file = e.target.files[0];
+            // Validating the size of the file
             if(file.size > 0.1e6 ){
               window.alert('Max image size permitted is 100KB')
             }else {
@@ -115,8 +124,7 @@ const CreateFlashCard = () => {
 
      <div className='text-black drop-shadow-lg rounded-lg' >
       <FieldArray name='term'>
-      {/* arrayHelper is an object provided by formik, so that arrays can be managed using array methods */}
-      {/* arrayHelper is passed as an argument here */}
+      {/* arrayHelper is provided by formik, so that arrays can be managed using array methods */}
       {
        (arrayHelper ) => {
         const term = values.term;

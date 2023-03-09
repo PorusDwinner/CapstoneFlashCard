@@ -11,9 +11,10 @@ const Topbar = () => {
       </h1>
 
       <div className="mt-3">
-        <button className="mr-[2rem] py-2 text-xl text-slate-600 px-3 font-medium border rounded-md
-          hover:bg-red-600 hover:text-white"
-          onClick={() => navigate('/tech_buddies')}>
+        <button className="mr-[2rem] py-2 text-xl text-slate-500 px-3
+        font-medium border rounded-md hover:bg-red-600 hover:text-white"
+          onClick={() => navigate('/tech_buddies')}
+        >
             Our Team
         </button>
       </div>
