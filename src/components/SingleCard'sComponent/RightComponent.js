@@ -3,15 +3,12 @@ import jsPDF from 'jspdf';
 import { BsFillShareFill } from 'react-icons/bs';
 import { BsFillCloudDownloadFill } from 'react-icons/bs';
 import { BsFillPrinterFill } from 'react-icons/bs';
-import { HiUserGroup } from 'react-icons/hi2';
 import { useDispatch } from 'react-redux';
-import { useNavigate } from 'react-router-dom';
 import { setModal } from '../flashCardSlicer/flashCardSlice';
 
 const RightComponent = ({ filteredCard }) => {
 
     const dispatch = useDispatch();
-    const navigate = useNavigate();
 
     // A function which returns the hard coded values for A4 size pdf.
     // By making a seprate function we can use it in download and print functions
@@ -87,17 +84,6 @@ const RightComponent = ({ filteredCard }) => {
                     <BsFillPrinterFill className='mt-1'/>
                     <p className='ml-6'>
                         Print
-                    </p>
-                </button>
-
-            {/* Our Team Button with icon */}
-                <button className='flex bg-white mt-6 py-2 px-4 font-medium rounded block
-                w-[90%] m-auto shadow-lg hover:bg-opacity-20'
-                id='button'
-                onClick={() => navigate('/tech_buddies')}>
-                    <HiUserGroup className='mt-2' />
-                    <p className='ml-2 2xl:ml-6'>
-                        Our Team
                     </p>
                 </button>
             </div>

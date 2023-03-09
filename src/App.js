@@ -4,7 +4,6 @@ import HomePage from './components/Pages/HomePage';
 import CreateFlashCard from './components/Pages/CreateFlashCard';
 import MyFlashCard from './components/Pages/MyFlashCard';
 import FlashCardDetails from './components/Pages/FlashCardDetails';
-import Team from './components/Pages/Team';
 
 function App() {
 
@@ -20,7 +19,6 @@ function App() {
             <Route path='/' element={<CreateFlashCard />} />
             <Route path='/myflashcard' element={<MyFlashCard />} />
             <Route path='/flashcarddetails/:groupId' element={<FlashCardDetails />} />
-            <Route path='/tech_buddies' element={<Team />} />
           </Routes>
         </BrowserRouter>
       </div>
