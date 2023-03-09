@@ -155,7 +155,7 @@ const CreateFlashCard = () => {
               </div>
 
               <div id='termDefinationDiv' className='relative flex flex-col justify-center space-y-3' >
-                <h2>Enter Defination*</h2>
+                <h2>Enter Definition*</h2>
                 
                 <Field as='textarea' name={`term.${index}.termDefination`}
                 className="resize-none border-slate-300 border-2 p-2 rounded-sm placeholder:opacity-40
