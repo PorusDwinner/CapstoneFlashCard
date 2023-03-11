@@ -11,3 +11,14 @@
         width: 15rem;
     }
 }
+
+@media only screen and (max-width : 639px){
+    #groupImageDescription{
+        display: flex;
+        flex-direction: column;
+    }
+    #termImageDefinition{
+        display: flex;
+        flex-direction: column;
+    }
+}

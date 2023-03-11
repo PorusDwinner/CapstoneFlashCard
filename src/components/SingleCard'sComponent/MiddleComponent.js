@@ -5,7 +5,7 @@ const MiddleComponent = ({ filteredCard }) => {
 
     // This will display group details
     <div className="flex flex-col">
-      <div className='flex'>
+      <div id='groupImageDescription' className='flex'>
         <img src={filteredCard[0].card.groupImg}
           alt={filteredCard[0].card.groupname}
           id='img'
@@ -17,7 +17,7 @@ const MiddleComponent = ({ filteredCard }) => {
         </p>
       </div>
 
-      <div className='flex'>
+      <div id='termImageDefinition' className='flex'>
         <img src={filteredCard[0].card.termImg}
           alt={filteredCard[0].card.term[0].termName}
           id='img'
