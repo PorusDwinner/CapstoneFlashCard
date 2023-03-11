@@ -16,10 +16,10 @@ const ModalShare = () => {
 
     // CopyToClipboard component will use this link inside it,
     // so that user do not have to type the link
-    const INPUT_LINK = 'http://www.tech_buddies.com/flashCard-generator';
+    const INPUT_LINK = 'https://640c2bccdcf746386d4b2f93--snazzy-centaur-213fac.netlify.app/';
     
     const dispatch = useDispatch();
-    const shareTestUrl = 'http://www.tech_buddies.com/flashCard-generator';
+    const shareTestUrl = 'https://640c2bccdcf746386d4b2f93--snazzy-centaur-213fac.netlify.app/';
 
     return (
         <div className='fixed inset-0 bg-black bg-opacity-40 backdrop-blur-sm flex justify-center items-center'>
@@ -37,7 +37,7 @@ const ModalShare = () => {
                         <p className="flex items-center flex-1 border-2 p-2 text-xs text-slate-500 border-slate-300 rounded-md border-dashed">
                             Link:
                             <span className="mx-2 font-semibold text-xs overflow-x-hidden text-black">
-                                http://www.tech_buddies.com/flashCard-generator
+                            https://640c2bccdcf746386d4b2f93--snazzy-centaur-213fac.netlify.app/
                             </span>
                         </p>
                         
