@@ -1,4 +1,5 @@
-import React, { useState } from 'react';
+import '../styles/MyFlashCard.css';
+import { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 import { BsArrowDownUp } from 'react-icons/bs';
@@ -59,7 +60,8 @@ const MyFlashCard = () => {
             ) : (
 
               // We are using differetn classe to give gradient type styling to the text
-              <div className='bg-white shadow-lg border p-20 display-block m-auto'>
+              <div className='bg-white shadow-lg border p-20 display-block m-auto'
+              id='emptyMyFlashCard'>
                 <div className='sm:flex sm:flex-row flex-wrap'>
                   <div>
                     <h1 className="mb-4 text-3xl font-extrabold text-gray-900

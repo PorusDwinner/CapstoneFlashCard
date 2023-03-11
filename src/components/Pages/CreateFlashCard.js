@@ -146,15 +146,15 @@ const CreateFlashCard = () => {
                <h2>Enter Term*</h2>
                
                <Field type='text' name={`term.${index}.termName`} innerRef={editRef} rows={3}
-               className="border-slate-300 border-2 p-2 rounded-sm focus:ring-slate-300 focus:border
-               focus:border-slate-400 lg:w-48 xl:w-56 2xl:60" />
+               className="border-slate-300 border-2 p-2 rounded-sm focus:ring-slate-300
+               focus:border focus:border-slate-400 lg:w-48 xl:w-56 2xl:60" />
                
                <p className='text-sm text-red-300'>
                   <ErrorMessage name={`term.${index}.termName`} />
                </p>
               </div>
 
-              <div id='termDefinationDiv' className='relative flex flex-col justify-center space-y-3' >
+              <div id='termDefinationDiv' className='relative flex flex-col justify-center space-y-3'>
                 <h2>Enter Definition*</h2>
                 
                 <Field as='textarea' name={`term.${index}.termDefination`}
