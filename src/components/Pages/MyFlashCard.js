@@ -18,6 +18,7 @@ const MyFlashCard = () => {
   // To delete all the flashcards
   const deleteAll = () => {
     dispatch(deleteFlashcard());
+    navigate('/');
     // we want to reload the page so that it checks with the updated data
     window.location.reload();
   }
