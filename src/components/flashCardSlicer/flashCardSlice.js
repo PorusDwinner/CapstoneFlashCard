@@ -37,6 +37,8 @@ export const flashCardSlice = createSlice({
             state.modal = !state.modal;
         },
 
+        // We clear all flashcard using localStorage.clear()
+        // It will clear localStorage
         deleteFlashcard(state , action){
             localStorage.clear();
         },
